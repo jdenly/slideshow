@@ -1,0 +1,12 @@
+{
+  "name": "myservice",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "semver": "^7.3.5"
+  },
+  "devDependencies": {
+    "serverless-api-gateway-throttling": "^1.1.0",
+    "serverless-resource-policy": "^1.0.4"
+  }
+}

@@ -1,0 +1,11 @@
+# Project exclude paths
+/node_modules/
+
+# Serverless directories
+.serverless
+
+# golang output binary directory
+bin
+
+# Intellij idea
+/.idea/
