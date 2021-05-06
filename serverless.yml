@@ -50,6 +50,8 @@ custom:
   apiGatewayThrottling:
     maxRequestsPerSecond: 10
     maxConcurrentRequests: 5
+  environment:
+    imageUploadBucketName: slideshow-images-${sls:instanceId}
 
 # you can overwrite defaults here
 # stage: dev
@@ -90,6 +92,8 @@ functions:
             parameters:
               paths:
                 id: true
+    environment:
+      imageUploadBucketName: ${self:custom.environment.imageUploadBucketName}
   image-upload:
     handler: bin/image-upload
     events:
@@ -142,7 +146,7 @@ resources:
     UploadBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: slideshow-images-${sls:instanceId}
+        BucketName: ${self:custom.environment.imageUploadBucketName}
         AccessControl: Private
 
 #  Outputs:
